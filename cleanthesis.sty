@@ -154,8 +154,11 @@
 
 % Using serif fonts
 %
+%\RequirePackage{Alegreya}
+\RequirePackage{AlegreyaSans}
 \RequirePackage{lmodern}	% font set: Latin Modern
 \RequirePackage{charter}	% font set: Charter
+
 
 % **************************************************
 % Load Packages
@@ -266,17 +269,17 @@
 	\fancyhf{}
 	\fancyfootoffset[OR]{1.85cm}
 	\fancyfoot[OR]{%
-		{\ }\tgherosfont%
+		{\ }\footerfont%
 		{\color{ctcolorfooterline}\rule[-90pt]{1.25pt}{100pt}}%
 		\hspace*{10pt}\begin{minipage}[b]{1.5cm}%
-			\color{ctcolorfooterpage}\normalsize\textbf{\thepage}%
+			\color{ctcolorfooterpage}\headingfont\normalsize\thepage%
 		\end{minipage}%
 	}
 	\fancyfootoffset[EL]{1.85cm}
 	\fancyfoot[EL]{%
-		\tgherosfont%
+		\footerfont%
 		\begin{minipage}[b]{1.5cm}%
-			\raggedleft\color{ctcolorfooterpage}\normalsize\textbf{\thepage}%
+			\raggedleft\color{ctcolorfooterpage}\headingfont\normalsize\thepage%
 		\end{minipage}%
 		\hspace*{10pt}{\color{ctcolorfooterline}\rule[-90pt]{1.25pt}{100pt}}%
 	}
@@ -289,18 +292,18 @@
 	\fancyhf{}
 	\fancyfootoffset[OR]{1.85cm}
 	\fancyfoot[OR]{%
-		{\ }\tgherosfont\footnotesize%
+		{\ }\footerfont\footnotesize%
 		\rightmark%
 		\hspace*{0.75cm}{\color{ctcolorfooterline}\rule[-90pt]{1.25pt}{100pt}}%
 		\hspace*{10pt}\begin{minipage}[b]{1.5cm}%
-			\color{ctcolorfooterpage}\normalsize\textbf{\thepage}%
+			\color{ctcolorfooterpage}\headingfont\normalsize\thepage%
 		\end{minipage}%
 	}
 	\fancyfootoffset[EL]{1.85cm}
 	\fancyfoot[EL]{%
-		\tgherosfont\footnotesize%
+		\footerfont\footnotesize%
 		\begin{minipage}[b]{1.5cm}%
-			\raggedleft\color{ctcolorfooterpage}\normalsize\textbf{\thepage}%
+			\raggedleft\color{ctcolorfooterpage}\headingfont\normalsize\thepage%
 		\end{minipage}%
 		\footnotesize%
 		\hspace*{10pt}{\color{ctcolorfooterline}\rule[-90pt]{1.25pt}{100pt}}%
@@ -320,23 +323,24 @@
 % own font definitions
 \newcommand{\helv}{\fontfamily{phv}\fontsize{9}{11}\selectfont}
 \newcommand{\book}{\fontfamily{pbk}\fontseries{m}\fontsize{11}{13}\selectfont}
-\newcommand{\tgherosfont}{\fontfamily{qhv}\selectfont}
+\newcommand{\headingfont}{\AlegreyaSansBlack\selectfont}
+\newcommand{\footerfont}{\AlegreyaSans\selectfont}
 
 \newcommand{\thesispartlabelfont}{\color{ctcolorpartnum}\book\fontsize{60}{60}\selectfont}
-\newcommand{\thesispartfont}{\color{ctcolorparttext}\huge \tgherosfont\selectfont}
+\newcommand{\thesispartfont}{\color{ctcolorparttext}\huge \headingfont\selectfont}
 \newcommand{\thesischapterfont}{\color{ctcolorblack}\huge \fontfamily{phv}\selectfont}
-%\newcommand{\thesissectionfont}{\color{ctcolormain}\LARGE\bfseries \tgherosfont}
-\newcommand{\thesissectionfont}{\color{ctcolorsection}\LARGE \tgherosfont}
-\newcommand{\thesissubsectionfont}{\color{ctcolorsubsection}\Large \tgherosfont}
-\newcommand{\thesisparagraphfont}{\color{ctcolorparagraph}\tgherosfont\small\bfseries}
+%\newcommand{\thesissectionfont}{\color{ctcolormain}\LARGE\bfseries \headingfont}
+\newcommand{\thesissectionfont}{\color{ctcolorsection}\Large \headingfont} %\bfseries}
+\newcommand{\thesissubsectionfont}{\color{ctcolorsubsection} \headingfont\bfseries}
+\newcommand{\thesisparagraphfont}{\color{ctcolorparagraph}\headingfont\bfseries}
 %
 % headings
 \setkomafont{part}{\thesispartfont} % for chapter entries
 \setkomafont{chapter}{\thesischapterfont} % for chapter entries
 \setkomafont{section}{\thesissectionfont} % for section entries
 \setkomafont{subsection}{\thesissubsectionfont} % for section entries
-\addtokomafont{subsubsection}{\tgherosfont}
-%\addtokomafont{paragraph}{\tgherosfont}
+\addtokomafont{subsubsection}{\headingfont}
+%\addtokomafont{paragraph}{\headingfont}
 \setkomafont{paragraph}{\thesisparagraphfont}
 
 %\setkomafont{subsection}{\large} % for subsection entries
@@ -473,9 +477,9 @@
 %
 %
 %%% toc chapter font
-\renewcommand{\cfttoctitlefont}{\huge\tgherosfont}
-\renewcommand{\cftloftitlefont}{\huge\tgherosfont}
-\renewcommand{\cftlottitlefont}{\huge\tgherosfont}
+\renewcommand{\cfttoctitlefont}{\huge\headingfont}
+\renewcommand{\cftloftitlefont}{\huge\headingfont}
+\renewcommand{\cftlottitlefont}{\huge\headingfont}
 %
 %
 % **************************************************

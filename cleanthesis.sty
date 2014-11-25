@@ -91,16 +91,6 @@
 \define@choicekey*[ct]{cthesis}{figuresep}{none,colon,period,space,quad,newline,endash}[endash]{\def\cthesis@figuresep{#1}}
 \setkeys[ct]{cthesis}{figuresep=endash}
 
-% OPTION colorize
-% --> values = full|reduced|bw
-\define@choicekey*[ct]{cthesis}{colorize}[\val\colorizenr]{full,reduced,bw}[full]{\def\cthesis@colorize{\colorizenr}}
-\setkeys[ct]{cthesis}{colorize=full}
-
-% OPTION colortheme
-% --> values = bluemagenta|bluegreen
-\define@choicekey*[ct]{cthesis}{colortheme}[\val\themenr]{bluemagenta,bluegreen,blueblue}[bluemagenta]{\def\cthesis@colortheme{\themenr}}
-\setkeys[ct]{cthesis}{colortheme=bluemagenta}
-
 % OPTION bibsys
 % --> values = biber|bibtex
 \define@choicekey*[ct]{cthesis}{bibsys}[\val\bibsysnr]{biber,bibtex}[bibtex]{\def\cthesis@bibsys{#1}}
@@ -134,100 +124,32 @@
 % The xcolor package enables us to create/handle/name different colors
 \RequirePackage[dvipsnames]{xcolor}
 
-% updates all colors regarding the defined main and accessory
-% color, as well as the defined colorize mode (full, reduced, bw)
-\long\def\ct@cthesis@updatecolors{%
-	% sets all colors (like colorize == full)
-	% -- footer colors
-	\colorlet{ctcolorfooterpage}{ctcolorblack}
-	\colorlet{ctcolorfooterline}{ctcolormain}
-	\colorlet{ctcolorfootermark}{ctcolorblack}
-	\colorlet{ctcolorfootertitle}{ctcolormain}
-	% -- sectioning colors
-	\colorlet{ctcolorpartnum}{ctcolormain}
-	\colorlet{ctcolorpartline}{ctcolorblack}
-	\colorlet{ctcolorparttext}{ctcolorblack}
-	\colorlet{ctcolorchapternum}{ctcolormain}
-	\colorlet{ctcolorchapterline}{ctcolormain}
-	\colorlet{ctcolorsection}{ctcolormain}
-	\colorlet{ctcolorsubsection}{ctcolormain}
-	\colorlet{ctcolorparagraph}{ctcolorblack}
-	% --> text colors
-	\colorlet{ctcolorfloatlabel}{ctcoloraccessory}
-	\colorlet{ctcolorlistlabel}{ctcolormain}
-
-	\ifcase\cthesis@colorize
-		% case = 0 (colorize == full)
-		% do nothing
-	\or
-		% case = 1 (colorize == reduced)
-		% --> footer colors
-		\colorlet{ctcolorfooterline}{ctcolorgray}
-		\colorlet{ctcolorfootertitle}{ctcolorgray}
-		% --> sectioning colors
-		\colorlet{ctcolorsubsection}{ctcolorblack}
-		\colorlet{ctcolorpartnum}{ctcolorblack}
-		% --> text colors
-		\colorlet{ctcolorlistlabel}{ctcolorblack}
-	\or
-		% case = 2 (colorize == bw)
-		% --> footer colors
-		\colorlet{ctcolorfooterline}{ctcolorgray}
-		\colorlet{ctcolorfootertitle}{ctcolorgray}
-		% --> sectioning colors
-		\colorlet{ctcolorpartnum}{ctcolorblack}
-		\colorlet{ctcolorchapternum}{ctcolorblack}
-		\colorlet{ctcolorchapterline}{ctcolorblack}
-		\colorlet{ctcolorsection}{ctcolorblack}
-		\colorlet{ctcolorsubsection}{ctcolorblack}
-		% --> text colors
-		\colorlet{ctcolorfloatlabel}{ctcolorblack}
-		\colorlet{ctcolorlistlabel}{ctcolorblack}
-	\else
-	\fi
-}
-
-% sets the main and accessory color for the document
-\def\cthesissetcolor#1#2#3{%
-	\definecolor{ctcolormain}{#1}{#2}%
-	\definecolor{ctcoloraccessory}{#1}{#3}%
-	\ct@cthesis@updatecolors%
-}
-
-% sets the blue-magenta color theme (blue/magenta)
-\def\cthesissetcolorbluemagenta{%
-	\cthesissetcolor{cmyk}{1, .50, .10, .01}{.18, .98, .18, 0}%
-}
-
-% sets the blue-green color theme (blue/green)
-\def\cthesissetcolorbluegreen{%
-	\cthesissetcolor{cmyk}{.61, .47, .03, 0}{.48, .05, .91, 0}%
-}
-
-% sets the blue-blue color theme (just blue)
-\def\cthesissetcolorblueblue{%
-	\cthesissetcolor{cmyk}{1, .50, .10, .01}{1, .50, .10, .01}%
-}
-
 % defines general colors
 \definecolor{ctcolorblack}{gray}{0}
 \definecolor{ctcolorgray}{gray}{.5}
 \definecolor{ctcolorgraylight}{gray}{.8}
 
-% sets the color theme regarding the given package option colortheme
-\ifcase\cthesis@colortheme
-	% case 0 (colortheme == bluemagenta)
-	\cthesissetcolorbluemagenta
-\or
-	% case 1 (colortheme == bluegreen)
-	\cthesissetcolorbluegreen
-\or
-	% case 2 (colortheme == blueblue)
-	\cthesissetcolorblueblue
-\else
-	% all other cases
-	\cthesissetcolorbluemagenta
-\fi
+% updates all colors regarding the defined main and accessory
+\colorlet{ctcolormain}{ctcolorblack}
+% -- footer colors
+\colorlet{ctcolorfooterpage}{ctcolorblack}
+\colorlet{ctcolorfooterline}{ctcolorgray}
+\colorlet{ctcolorfootermark}{ctcolorblack}
+\colorlet{ctcolorfootertitle}{ctcolorgray}
+% -- sectioning colors
+\colorlet{ctcolorpartnum}{ctcolormain}
+\colorlet{ctcolorpartline}{ctcolorblack}
+\colorlet{ctcolorparttext}{ctcolorblack}
+\colorlet{ctcolorchapternum}{ctcolorblack}
+\colorlet{ctcolorchapterline}{ctcolorblack}
+\colorlet{ctcolorsection}{ctcolorblack}
+\colorlet{ctcolorsubsection}{ctcolorblack}
+\colorlet{ctcolorparagraph}{ctcolorblack}
+% --> text colors
+\colorlet{ctcolorfloatlabel}{ctcolorblack}
+\colorlet{ctcolorlistlabel}{ctcolorblack}
+
+
 
 
 % **************************************************

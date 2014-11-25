@@ -155,7 +155,7 @@
 % Using serif fonts
 %
 %\RequirePackage{Alegreya}
-\RequirePackage{AlegreyaSans}
+\RequirePackage[black]{AlegreyaSans}
 \RequirePackage{lmodern}	% font set: Latin Modern
 \RequirePackage{charter}	% font set: Charter
 
@@ -178,10 +178,10 @@
 %
 \RequirePackage[					% modify figure and table captions
 	font={small}, 					% 	- small font size
-	labelfont={bf,sf,color=ctcolorfloatlabel},% 	- label in bold, sans-serif and magenta
+	labelfont={sf,bf,color=ctcolorfloatlabel},% 	- label in bold, sans-serif
 	labelsep=\cthesis@figuresep,				% 	- separator: none, colon, period, space, quad, newline, endash
 	singlelinecheck=false			% 	- no centered single-lined captions
-]{caption}[2008/08/24]
+]{caption}
 %\ifthenelse{\boolean{@figurecaptionoutside}}%
 \ifct@cthesis@hangfigurecaption
 %	{%
@@ -337,7 +337,7 @@
 \newcommand{\headingfont}{\AlegreyaSansBlack\selectfont}
 \newcommand{\footerfont}{\AlegreyaSans\selectfont}
 
-\newcommand{\thesispartlabelfont}{\color{ctcolorpartnum}\book\fontsize{60}{60}\selectfont}
+\newcommand{\thesispartlabelfont}{\color{ctcolorpartnum}\normalfont\book\fontsize{60}{60}\selectfont}
 \newcommand{\thesispartfont}{\color{ctcolorparttext}\huge \headingfont\selectfont}
 \newcommand{\thesischapterfont}{\color{ctcolorblack}\huge \headingfont\selectfont}
 %\newcommand{\thesissectionfont}{\color{ctcolormain}\LARGE\bfseries \headingfont}

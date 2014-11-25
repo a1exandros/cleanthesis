@@ -262,49 +262,6 @@
 \displaywidowpenalty = 10000		%
 
 % **************************************************
-% List Definitions
-% **************************************************
-\newenvironment{my_list}%
-	{\begin{enumerate}%
-		\setlength{\itemsep}{1pt}%
-		\setlength{\parskip}{0pt}%
-		\setlength{\parsep}{0pt}%
-	}%
-	{\end{enumerate}}
-%
-\newenvironment{my_list_num}
-	{\begin{enumerate}[topsep=-5pt,partopsep=0pt,parsep=2pt,itemsep=3pt]}
-	{\end{enumerate}}%
-
-\newenvironment{my_list_item}
-	{\begin{itemize}[topsep=-5pt,partopsep=0pt,parsep=2pt,itemsep=3pt]}
-	{\end{itemize}}%
-
-\newenvironment{ct_version_list}
-	{\begin{itemize}[topsep=-5pt,partopsep=0pt,parsep=2pt,itemsep=3pt]}
-	{\end{itemize}}%
-
-	\newenvironment{ct_version_list_sub}
-		{\begin{itemize}[topsep=-0pt,partopsep=0pt,parsep=0pt,itemsep=0pt]}
-		{\end{itemize}}%
-
-\renewcommand{\descriptionlabel}[1]{%
-	\hspace*{\labelsep}%
-	\color{ctcolorlistlabel}%
-	\tgherosfont\textbf{#1}%
-}
-\newenvironment{my_list_desc}
-	{\begin{description}[%
-		style=multiline,%
-		topsep=-5pt,%
-		leftmargin=3cm,%
-		partopsep=0pt,%
-		parsep=2pt,%
-		itemsep=3pt%
-	]}
-	{\end{description}}%
-
-% **************************************************
 % Header and Footer
 % **************************************************
 \pagestyle{fancy}
